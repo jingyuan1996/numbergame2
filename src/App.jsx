@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import "./w3.css";
 
 const getRandomNumber = () => {
   return Math.floor(Math.random() * 100) + 1;
@@ -16,6 +17,7 @@ function App() {
 
   const handleReset = () => {
     setTargetNumber(getRandomNumber());
+    setMessage("guess a number");
   };
 
   const handleGuessChange = (e) => {
@@ -38,17 +40,22 @@ function App() {
     <>
       <h1>guess number game 1-100</h1>
       <Repoheader text={message} />
-      <Repoheader text={targetNumber} />
-      <Repoheader text={guessNumber} />
       <input
         type="number"
         value={guessNumber}
         onChange={handleGuessChange}
         min="1"
         max="100"
+        className="w3-input"
       ></input>
-      <button onClick={handleAnsSubmit}>your </button>
-      <button onClick={handleReset}>restart game </button>
+      <br></br>
+      <button className="button_test" onClick={handleAnsSubmit}>
+        your
+      </button>
+      <br></br>
+      <button className="button_test" onClick={handleReset}>
+        restart game
+      </button>
     </>
   );
 }
